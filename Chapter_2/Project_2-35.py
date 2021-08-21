@@ -48,17 +48,18 @@ class Packets:
     #    return "%s, %s, %s" % (self.username, self.ipaddress, self.email)
 
 class GenPackets(Packets):  
-    def __init__(self, users):
-        users = ff
-    #TODO: Add method so Alice can generate packets and another one so she can send them
 
     @Packets.name.setter
     @Packets.email.setter
     @Packets.ip_adr.setter 
-    def overall_setter(self, *data):
+    def overall_setter(self, names, emails, ips):
         #TODO unpack with zip(*data)
-        Packets.name.fset(self,
+        Packets.name.fset(self, names)
+        Packets.email.fset(self, emails)
+        Packets.ip_adr.fset(self, ips)
     #TODO: In init add list with users, emails, and ips or a way to add them 
+
+
 
 #TODO: Create class for bob to delete or read packets
 tito = Packets()
@@ -66,3 +67,9 @@ tito.username = "TITO"
 tito.ipaddress = "182.784.986"
 tito.email = "tito@cats.com"
 print(tito)
+
+Alice = GenPackets()
+Alice.username = 'jiji'
+Alice.email = 'jiji@cats.com'
+Alice.ipaddress = '00000'
+print(Alice)
