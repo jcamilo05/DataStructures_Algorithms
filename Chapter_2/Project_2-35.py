@@ -47,9 +47,14 @@ class Packets:
     #def __repr__(self):
     #    return "%s, %s, %s" % (self.username, self.ipaddress, self.email)
 
-class GenPackets(Packets):
-    def __init__(self):
-        super().__init__(self)
+class GenPackets(Packets):  
+    def __init__(self, users):
+        users = ff
+    #TODO: Add method so Alice can generate packets and another one so she can send them
+
+    def #TODO: In init add list with users, emails, and ips or a way to add them 
+
+#TODO: Create class for bob to delete or read packets
 tito = Packets()
 tito.username = "TITO"
 tito.ipaddress = "182.784.986"
