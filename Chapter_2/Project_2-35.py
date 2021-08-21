@@ -47,6 +47,9 @@ class Packets:
     #def __repr__(self):
     #    return "%s, %s, %s" % (self.username, self.ipaddress, self.email)
 
+class GenPackets(Packets):
+    def __init__(self):
+        super().__init__(self)
 tito = Packets()
 tito.username = "TITO"
 tito.ipaddress = "182.784.986"
