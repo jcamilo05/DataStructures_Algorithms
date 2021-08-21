@@ -52,7 +52,13 @@ class GenPackets(Packets):
         users = ff
     #TODO: Add method so Alice can generate packets and another one so she can send them
 
-    def #TODO: In init add list with users, emails, and ips or a way to add them 
+    @Packets.name.setter
+    @Packets.email.setter
+    @Packets.ip_adr.setter 
+    def overall_setter(self, *data):
+        #TODO unpack with zip(*data)
+        Packets.name.fset(self,
+    #TODO: In init add list with users, emails, and ips or a way to add them 
 
 #TODO: Create class for bob to delete or read packets
 tito = Packets()
