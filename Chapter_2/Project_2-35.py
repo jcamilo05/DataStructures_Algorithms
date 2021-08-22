@@ -10,7 +10,7 @@ so, he reads and deletes it.
 """
 # packet --> user_name - ip_address - email
 class Packets:
-    def __int__(self, username="None", ipaddress="None", email="None"):
+    def __init__(self, username="None", ipaddress="None", email="None"):
         self._username = username
         self._ipaddress = ipaddress
         self._email = email
@@ -40,9 +40,9 @@ class Packets:
         self._email = newEmail
 
     def __str__(self):
-        #return f"User_name: {self._username} {self.username}, IP address {self._ipaddress} {self.ipaddress}, email {self._email} {self.email}"
+        return f"User_name: {self._username} {self.username}, IP address {self._ipaddress} {self.ipaddress}, email {self._email} {self.email}"
         #return f"User: {self._username}, IP address {self._ipaddress}, email {self._email}"
-        return f"User: {self.username}, IP address {self.ipaddress}, email {self.email}"
+        #return f"User: {self.username}, IP address {self.ipaddress}, email {self.email}"
 
     #def __repr__(self):
     #    return "%s, %s, %s" % (self.username, self.ipaddress, self.email)
