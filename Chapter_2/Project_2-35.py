@@ -41,11 +41,9 @@ class Packets:
 
     def __str__(self):
         return f"User_name: {self._username} {self.username}, IP address {self._ipaddress} {self.ipaddress}, email {self._email} {self.email}"
-        #return f"User: {self._username}, IP address {self._ipaddress}, email {self._email}"
-        #return f"User: {self.username}, IP address {self.ipaddress}, email {self.email}"
 
-    #def __repr__(self):
-    #    return "%s, %s, %s" % (self.username, self.ipaddress, self.email)
+    def __repr__(self):
+        return "%s, %s, %s" % (self.username, self.ipaddress, self.email)
 
 class GenPackets(Packets):  
 
