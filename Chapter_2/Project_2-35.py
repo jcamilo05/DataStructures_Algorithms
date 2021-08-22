@@ -57,19 +57,31 @@ class GenPackets(Packets):
         Packets.name.fset(self, names)
         Packets.email.fset(self, emails)
         Packets.ip_adr.fset(self, ips)
-    #TODO: In init add list with users, emails, and ips or a way to add them 
+    def unpack_data(self, *data):
+        counter = 0
+        self.username = tuple(zip(*data))[0][0]
+        self.email = tuple(zip(*data))[1][0]
+        self.ipaddress = tuple(zip(*data))[2][0]
+        #for i in zip(*data):
+        #    print(i[0])
+        #    self.username = i[0][0]
+        #    self.email = i[0][0]
+        #    self.ipaddress = i[0][0]
+        #    print(i[0][0])
+    #        break
 
 
 
 #TODO: Create class for bob to delete or read packets
-tito = Packets()
-tito.username = "TITO"
-tito.ipaddress = "182.784.986"
-tito.email = "tito@cats.com"
-print(tito)
-
 Alice = GenPackets()
 Alice.username = 'jiji'
 Alice.email = 'jiji@cats.com'
 Alice.ipaddress = '00000'
+print(Alice)  # it is not printing the default Nones
+Alice.unpack_data([("jiji", "tito"), ("jiji@cats.com", "tito@cats.com"), ("182.784.986", "00000")])
 print(Alice)
+
+Alice.username = 'jiji'
+Alice.email = 'jiji@cats.com'
+Alice.ipaddress = '00000'
+print(Alice)  # it is not printing the default Nones
