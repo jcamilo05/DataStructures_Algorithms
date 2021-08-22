@@ -1,4 +1,4 @@
-class Flower(object):
+class Flower:
     def __init__(self, name="Flower", petals=0, price=0):
         self._name = name
         self._petals = petals
@@ -12,10 +12,6 @@ class Flower(object):
     def num_petals(self):
         return self._petals
     
-    @property  # getter
-    def num_petals(self):
-        return self._petals
-
     @property  # getter
     def cost(self):
         return self._price
@@ -39,10 +35,27 @@ class Flower(object):
         #return "%s, %s, %d, %d" % (self.__class__.__name__, self.name, self.petals, self.price)  # errors with eval because there's variables not defined before
         #return "%s, tito.name, %d, %d" % (self.__class__.__name__, self.petals, self.price) 
         return "%s, %d, %d" % (self.__class__.__name__, self.petals, self.price) 
+
+
+class GenFlowers(Flower):
+    @Flower.flower_name.setter
+    @Flower.num_petals.setter
+    @Flower.cost.setter
+    def test_setter(self, new_name, new_petals, new_cost):
+        Flower.flower_name.fset(self, new_name)
+        Flower.num_petals.fset(self, new_petals)
+        Flower.cost.fset(self, new_cost)
+    def assign_values(self, data):
+        self.name = data[0]
+        self.petals = data[1]
+        self.price = data[2]
+ 
     
     
-tito = Flower()
-tito.price = 64
-tito.name = "Tito"
-tito.petals = 8
+tito = GenFlowers()
+#tito.price = 64
+#tito.name = "Tito"
+#tito.petals = 8
+tito.assign_values(['Tito', 8, 64])
 print(tito)
+
