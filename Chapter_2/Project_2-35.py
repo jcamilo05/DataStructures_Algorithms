@@ -9,6 +9,7 @@ checking if his computer has a packet from Alice, and, if
 so, he reads and deletes it.
 """
 # packet --> user_name - ip_address - email
+#TODO: Test setters and getters
 class Packets:
     def __init__(self, username="None", ipaddress="None", email="None"):
         self._username = username
