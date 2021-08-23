@@ -9,6 +9,7 @@ checking if his computer has a packet from Alice, and, if
 so, he reads and deletes it.
 """
 # packet --> user_name - ip_address - email
+#TODO: Test setters and getters
 class Packets:
     def __init__(self, username="None", ipaddress="None", email="None"):
         self._username = username
@@ -24,7 +25,7 @@ class Packets:
         return self._ipaddress
 
     @property
-    def email(self):
+    def email_adr(self):
         return self._email
 
     @name.setter
@@ -33,10 +34,13 @@ class Packets:
 
     @ip_adr.setter
     def ip_adr(self, newIP):
-        self._ipaddress = newIP
+        if not isinstance(newIP, int):
+            self._ipaddress = newIP
+        else:
+            self._ipaddress = 0
 
-    @email.setter
-    def email(self, newEmail):
+    @email_adr.setter
+    def email_adr(self, newEmail):
         self._email = newEmail
 
     def __str__(self):
@@ -47,14 +51,15 @@ class Packets:
 
 class GenPackets(Packets):  
 
-    @Packets.name.setter
-    @Packets.email.setter
-    @Packets.ip_adr.setter 
-    def overall_setter(self, names, emails, ips):
-        #TODO unpack with zip(*data)
-        Packets.name.fset(self, names)
-        Packets.email.fset(self, emails)
-        Packets.ip_adr.fset(self, ips)
+    # To review later
+    #@Packets.name.setter
+    #@Packets.email.setter
+    #@Packets.ip_adr.setter 
+    #def overall_setter(self, names, emails, ips):
+    #    #TODO unpack with zip(*data)
+    #    Packets.name.fset(self, names)
+    #    Packets.email.fset(self, emails)
+    #    Packets.ip_adr.fset(self, ips)
     def unpack_data(self, *data):
         counter = 0
         self.username = tuple(zip(*data))[0][0]
@@ -68,18 +73,18 @@ class GenPackets(Packets):
         #    print(i[0][0])
     #        break
 
-
-
 #TODO: Create class for bob to delete or read packets
+test = Packets()
+test.username = 'test'
+test.email = 'test'
+#test.ipaddress = 'test'
+test.ipaddress = 503223
+print(test)
 Alice = GenPackets()
-Alice.username = 'jiji'
-Alice.email = 'jiji@cats.com'
-Alice.ipaddress = '00000'
-print(Alice)  # it is not printing the default Nones
+#Alice.unpack_data([("jiji", "tito"), ("jiji@cats.com", "tito@cats.com"), ("182.784.986", "00000")])
 Alice.unpack_data([("jiji", "tito"), ("jiji@cats.com", "tito@cats.com"), ("182.784.986", "00000")])
 print(Alice)
-
-Alice.username = 'jiji'
-Alice.email = 'jiji@cats.com'
-Alice.ipaddress = '00000'
-print(Alice)  # it is not printing the default Nones
+Alice.unpack_data([("jiji", "XXXXX"), ("jiji@cats.com", "XX@cats.com"), ("182.784.986", "XXX")])
+print(Alice)
+Alice.unpack_data([("jiji", "tito"), ("jiji@cats.com", "tito@cats.com"), ("182.784.986", "00000")])
+print(Alice)

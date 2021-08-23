@@ -6,6 +6,7 @@ class Flower:
 
     @property  # getter
     def flower_name(self):
+        print('calling getter')
         return self._name
 
     @property  # getter
@@ -18,6 +19,7 @@ class Flower:
 
     @flower_name.setter
     def flower_name(self, n):        
+        print('calling setter')
         self._name = n 
 
     @num_petals.setter
@@ -37,25 +39,10 @@ class Flower:
         return "%s, %d, %d" % (self.__class__.__name__, self.petals, self.price) 
 
 
-class GenFlowers(Flower):
-    @Flower.flower_name.setter
-    @Flower.num_petals.setter
-    @Flower.cost.setter
-    def test_setter(self, new_name, new_petals, new_cost):
-        Flower.flower_name.fset(self, new_name)
-        Flower.num_petals.fset(self, new_petals)
-        Flower.cost.fset(self, new_cost)
-    def assign_values(self, data):
-        self.name = data[0]
-        self.petals = data[1]
-        self.price = data[2]
- 
     
-    
-tito = GenFlowers()
-#tito.price = 64
-#tito.name = "Tito"
-#tito.petals = 8
-tito.assign_values(['Tito', 8, 64])
+tito = Flower()
+tito.price = 64
+tito.name = "Tito"
+tito.petals = 8
 print(tito)
 
