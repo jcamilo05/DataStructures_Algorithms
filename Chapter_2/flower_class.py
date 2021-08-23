@@ -6,6 +6,7 @@ class Flower:
 
     @property  # getter
     def flower_name(self):
+        print('calling getter')
         return self._name
 
     @property  # getter
@@ -18,6 +19,7 @@ class Flower:
 
     @flower_name.setter
     def flower_name(self, n):        
+        print('calling setter')
         self._name = n 
 
     @num_petals.setter
@@ -38,7 +40,7 @@ class Flower:
 
 
     
-tito = Flowers()
+tito = Flower()
 tito.price = 64
 tito.name = "Tito"
 tito.petals = 8
