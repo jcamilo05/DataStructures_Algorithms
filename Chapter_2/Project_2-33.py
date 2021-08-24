@@ -97,11 +97,11 @@ class Polynomial:
         self._degrees = None
 
     @property              # getter coefficients
-    def Coefficients(self):
+    def coeffs(self):
         return self._coeffs
     
-    @Coefficients.setter   # setter coefficients 
-    def Coefficients(self, coeffs):
+    @coeffs.setter   # setter coefficients 
+    def coeffs(self, coeffs):
         
         if isinstance(coeffs, str):      # here if the input is in algebraic notation
             self._coeffs = TakeCoeffs.coeffs(coeffs)
@@ -111,7 +111,7 @@ class Polynomial:
             self._degrees = [i-1 for i in range(len(coeffs),1,-1)]
         
     @property
-    def Degrees(self):     # getter degrees the setter is no needed because are calculated
+    def degrees(self):     # getter degrees the setter is no needed because are calculated
         return self._degrees
     
     def printPoly(self,coeffs):
@@ -153,13 +153,13 @@ class Polynomial:
 
 
 a = Polynomial()
-a.Coefficients = [5,4,5,1]
+a.coeffs = [5,4,5,1]
 
 b = Polynomial()
-b.Coefficients = "5*x^3 + 4*x^2 + 5*x + 1"
+b.coeffs = "5*x^3 + 4*x^2 + 5*x + 1"
 
-a.Coefficients
-b.Coefficients
+a.coeffs
+b.coeffs
 
 print(a)
 

@@ -31,9 +31,7 @@ class Flower:
         self._price = value
 
     def __str__(self):
-        return f'''Default name: {self._name}
-               Default number of Petals: {self._petals}
-               Default cost: {self._price}'''
+        return f"Default name: {self._name}\nDefault number of Petals: {self._petals}\nDefault cost: {self._price}"
 
     def __repr__(self):
         return "%s, %s, %d, %d" % (self.__class__.__name__, self.name,
@@ -45,4 +43,3 @@ tito.price = 64
 tito.name = "Tito"
 tito.petals = 8
 print(tito)
-
