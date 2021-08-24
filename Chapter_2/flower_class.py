@@ -2,45 +2,45 @@ class Flower:
     def __init__(self, name="Flower", petals=0, price=0):
         self._name = name
         self._petals = petals
-        self._price = price    
+        self._price = price
 
     @property  # getter
-    def flower_name(self):
+    def name(self):
         print('calling getter')
         return self._name
 
     @property  # getter
-    def num_petals(self):
+    def petals(self):
         return self._petals
-    
+
     @property  # getter
-    def cost(self):
+    def price(self):
         return self._price
 
-    @flower_name.setter
-    def flower_name(self, n):        
+    @name.setter
+    def name(self, n):
         print('calling setter')
-        self._name = n 
+        self._name = n
 
-    @num_petals.setter
-    def num_petals(self, num):
+    @petals.setter
+    def petals(self, num):
         self._petals = num
-    
-    @cost.setter
-    def cost(self, value):
+
+    @price.setter
+    def price(self, value):
         self._price = value
 
     def __str__(self):
-        return f"Default name: {self._name}\nNew name: {self.name}\nDefault number of Petals: {self._petals}\nNumber of Petals: {self.petals}\nDefault cost: {self._price}\nCost {self.price}"         
+        return f'''Default name: {self._name}
+               Default number of Petals: {self._petals}
+               Default cost: {self._price}'''
 
     def __repr__(self):
-        #return "%s, %s, %d, %d" % (self.__class__.__name__, self.name, self.petals, self.price)  # errors with eval because there's variables not defined before
-        #return "%s, tito.name, %d, %d" % (self.__class__.__name__, self.petals, self.price) 
-        return "%s, %d, %d" % (self.__class__.__name__, self.petals, self.price) 
+        return "%s, %s, %d, %d" % (self.__class__.__name__, self.name,
+                self.petals, self.price)
 
-
-    
 tito = Flower()
+print(tito)
 tito.price = 64
 tito.name = "Tito"
 tito.petals = 8
