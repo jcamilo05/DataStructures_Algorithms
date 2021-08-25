@@ -8,8 +8,6 @@ them to Bob's computer, and Bob is periodically
 checking if his computer has a packet from Alice, and, if
 so, he reads and deletes it.
 """
-# packet --> user_name - ip_address - email
-#TODO: Test setters and getters
 class Packets:
     def __init__(self, username="None", ipaddress="None", email_adr="None"):
         self._name = username
@@ -18,35 +16,26 @@ class Packets:
 
     @property
     def name(self):
-        print("calling name getter")
         return self._name
 
     @property
     def ipaddr(self):
-        print("calling ipaddr getter")
         return self._ipaddr
 
     @property
     def email(self):
-        print("calling email getter")
         return self._email
 
     @name.setter
     def name(self, uname):
-        print("calling name setter")
         self._name = uname
 
     @ipaddr.setter
     def ipaddr(self, newIP):
-        print("calling ipadr setter")
-        if not isinstance(newIP, int):
-            self._ipaddr = newIP
-        else:
-            self._ipaddr = 0
+        self._ipaddr = newIP
 
     @email.setter
     def email(self, newEmail):
-        print("calling email setter")
         self._email = newEmail
 
     def __str__(self):
@@ -57,34 +46,32 @@ class Packets:
 
 class GenPackets(Packets):  
 
-    # To review later
-    #@Packets.name.setter
-    #@Packets.email.setter
-    #@Packets.ip_adr.setter 
-    #def overall_setter(self, names, emails, ips):
-    #    #TODO unpack with zip(*data)
-    #    Packets.name.fset(self, names)
-    #    Packets.email.fset(self, emails)
-    #    Packets.ip_adr.fset(self, ips)
-    def unpack_data(self, *data):
-        counter = 0
-        self.name = tuple(zip(*data))[0][0]
-        self.email = tuple(zip(*data))[1][0]
-        self.ipaddr = tuple(zip(*data))[2][0]
-        #for i in zip(*data):
-        #    print(i[0])
-        #    self.username = i[0][0]
-        #    self.email = i[0][0]
-        #    self.ipaddress = i[0][0]
-        #    print(i[0][0])
-    #        break
+    def unpack_data(self, data):
+        for k in data.keys():
+            self.name = data[k][0]
+            self.email = data[k][1]
+            self.ipaddr = data[k][2]
+            print(self)
 
 #TODO: Create class for bob to delete or read packets
+def custom_input():  # TODO: Add logic to only accept ints in the input
+    """
+    Void function that takes users input  to fill out username, email,
+    and ip address related data
+    :returns: All users in a dictionary
+    """
+    num_packets = int(input("Please state how many packets do you want to generate: "))
+    total_users = num_packets
+    all_users = dict()
+    while num_packets > 0:
+        username = input("Please write down a username: ")
+        email = input("Please write down an email: ")
+        ipaddress = input("Please write down an ip address: ")
+        packet_elements = (username, email, ipaddress)
+        all_users.setdefault(f"User{(total_users + 1) - num_packets}", packet_elements)
+        num_packets -= 1
+    return all_users
+
 Alice = GenPackets()
-#Alice.unpack_data([("jiji", "tito"), ("jiji@cats.com", "tito@cats.com"), ("182.784.986", "00000")])
-Alice.unpack_data([("jiji", "tito"), ("jiji@cats.com", "tito@cats.com"), ("182.784.986", "00000")])
-print(Alice)
-#Alice.unpack_data([("jiji", "XXXXX"), ("jiji@cats.com", "XX@cats.com"), ("182.784.986", "XXX")])
-#print(Alice)
-#Alice.unpack_data([("jiji", "tito"), ("jiji@cats.com", "tito@cats.com"), ("182.784.986", "00000")])
-#print(Alice)
+Alice.unpack_data(custom_input())
+#([("jiji", "tito"), ("jiji@cats.com", "tito@cats.com"), ("182.784.986", "00000")])
