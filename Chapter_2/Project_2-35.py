@@ -67,8 +67,8 @@ def custom_input():  # TODO: Add logic to only accept ints in the input
         username = input("Please write down a username: ")
         email = input("Please write down an email: ")
         ipaddress = input("Please write down an ip address: ")
-        packet_elements = (username, email, ipaddress)
-        all_users.setdefault(f"User{(total_users + 1) - num_packets}", packet_elements)
+        *packet_elements, = username, email, ipaddress
+        all_users.setdefault(f"User{(total_users + 1) - num_packets}", tuple(packet_elements))
         num_packets -= 1
     return all_users
 
