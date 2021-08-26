@@ -8,7 +8,6 @@ them to Bob's computer, and Bob is periodically
 checking if his computer has a packet from Alice, and, if
 so, he reads and deletes it.
 """
-import pandas as pd
 class Packets:
     def __init__(self, username="None", ipaddress="None", email_adr="None"):
         self._name = username
@@ -52,9 +51,7 @@ class GenPackets(Packets):
             self.name = data[k][0]
             self.email = data[k][1]
             self.ipaddr = data[k][2]
-            dic = print(self)
-        print(pd.DataFrame(dic))
-
+            print(self)
 
 #TODO: Create class for bob to delete or read packets
 def custom_input():  # TODO: Add logic to only accept ints in the input
@@ -77,5 +74,4 @@ def custom_input():  # TODO: Add logic to only accept ints in the input
 
 Alice = GenPackets()
 Alice.unpack_data(custom_input())
-
 #([("jiji", "tito"), ("jiji@cats.com", "tito@cats.com"), ("182.784.986", "00000")])
