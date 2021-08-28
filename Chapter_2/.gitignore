@@ -5,6 +5,8 @@
 *.swp
 
 # ignore __Pycache__
+*.pyc
 
-__pycache__
+# ignore
+*.pyo
 
