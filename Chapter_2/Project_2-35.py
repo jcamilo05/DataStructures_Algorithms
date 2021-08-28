@@ -52,7 +52,7 @@ class GenPackets(Packets):
             self.name = data[k][0]
             self.email = data[k][1]
             self.ipaddr = data[k][2] 
-            self.data_frame = pd.DataFrame(data, index=['name','email', 'Ip'])
+            self.data_frame = pd.DataFrame(data, index=['name','email', 'Ip']).T
         print(self.data_frame)
 
 #TODO: Create class for bob to delete or read packets
