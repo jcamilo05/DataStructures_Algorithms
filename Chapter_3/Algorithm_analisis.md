@@ -1,8 +1,6 @@
 # One way of measure the executing running time
 
-In python there is a  function called time, one simple way of measure the time that take to performing  some snippet is measuring the time before and after running the  code. (a.k.a elapse time)
-
-The previous way its no the better way, because that time rely on the hardware and how many processes the CPU are running and also is dependent on which input is putting in, that's because the code may run faster on some inputs than it does on others even with the same size.
+In python there is a function called time, but this dependent on CPU power and differs between machines.
 
 <h2>Important functions</h2>
 
@@ -16,15 +14,15 @@ For any argument n, the function always assigns the value C
 
     f(n) = log(n)  
 
-In this case we'll consider the base of the algorithm function as 2, that's because the computer store integers in binary and a common operation in many algorithms is divide the input in half.
+In this case we'll consider the base of the algorithm function as 2, that's because the computer store integers in binary and a common operation in many algorithms is to divide the input in half.
 
 <h3> 3. Linear function </h3>
 
     f(n) = n
 
-That's given a input  n, the linear function assigns the value n, this function arise each time we have to do a single operation for each n element.
+Given an input n, the linear function assigns the value n, this function is called each time we have to do a single operation for each n element.
 
-For example comparing a number with each number of a sequence of size n will require n comparisons.
+For example comparing a number with each number of a sequence of size *n* will require *n* comparisons.
 
 <h3> 4. Log-n functions </h3>
 
@@ -36,25 +34,25 @@ For example comparing a number with each number of a sequence of size n will req
 
       f(n) = n²
 
-The main reason because this function appears is that there are many algorithms that have nested loops, where both the inner and the outer loop perform a linear number operation.
+Many algorithms have nested loops, where both the inner and the outer loops perform a linear number operation, hence why we may end up with quadratic functions.
 
 <h3> 6. Exponential function </h3>
 
     f(n) =b^n
 
-This function work for example when we have a loop that starts by performing one operation and then double the number of operation performed, then the number of operation performed in n-th iteration is 2^n.
+When an operation is computed twice or more in a loop, then the number of operations computed per n-th iteration is 2^n.
 
 <h2>The "BIG-OH" Notation</h2>
 
-Let f(n) and g(n) be function mapping positive integers to real numbers, we say that f(n) is O(g(n)) if there are a constant c > 0 and one integer n0 > 1.
+Let f(n) and g(n) be function mapping positive integers to real numbers, we can say that f(n) is O(g(n)) if there are a constant c > 0 and one integer n0 > 1.
 
-Basically the BIG-Oh say us that its a kind of superior limit for a value greater than n0, the following depict show what we just said.
+I.e. Big-O is an upper limit for a values greater than n0...
 
  ![image](Images/big-oh.png)
 
  It\'s considered poor taste to say `f(n) < O(g(n))` since the big-oh already denotes the less.
 
-The following snippet belongs to an algorithm that search the greater value in one lists, to performing such task the code must to compare each element of the list, which means that the code runs in O(n).
+The following snippet belongs to an algorithm that searches the greater value in one list. To perform such a task the code must compare each element of the list, which means that the code runs in O(n).
 
 ```python
  def find_max(data):
@@ -68,23 +66,23 @@ The following snippet belongs to an algorithm that search the greater value in o
            biggest = i
    return biggest
 ```
-Other characteristic of big-oh is it ignore constant factors and lower order terms, for example the function 5n⁴ + 3n³ + 2n² + 4 is O(n⁴).
+Big-O ignores constant factors and lower ordered terms. For example, the function 5n⁴ + 3n³ + 2n² + 4 is O(n⁴).
 
 <h2> Big Omega</h2>
 
-Just as big-Oh notation provides one way of saying that a function is "less than or equal to" the big omega Ω  provide a way of saying a function grows at a rate that is greater than or equal, in other words the omega is a lower bound of a function for some values n0 > 0.
+Just as Big-O notation denotes an upper limit, i.e. a function is "less than or equal to", big omega Ω shows how a function grows at a rate that is greater than or equal to, i.e. a lower limit or lower bound of a function for some value n0 > 0.
 
 For instance 3nlog(n) - 2n is Ω( nlog(n))
 
 <h2>Prefix average</h2>
 
-To see how big-oh works let's consider a problem  known as prefix average which computing the average of all values previous to an index given, for example in a sequence S the average of a index given is A[j] = s[0], .. s[j] for j= 0,...(n-1).
+To see how big-oh works let us consider a problem known as prefix average. This computes the average of all values previous to an index given; for example in a sequence S the average of a given index is A[j] = s[0], .. s[j] for j= 0,...(n-1).
 
-The next equation represent the previously said
+For example:
 
 ![](Images/Average.png)
 
-The following snippet implement one algorithm that is O(n²).
+The following snippet implements one algorithm that is O(n²).
 
 ``` python
 def prefix_average(s):
