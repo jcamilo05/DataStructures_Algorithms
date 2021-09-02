@@ -7,3 +7,7 @@
 -
 -
 -
+
+## Other resources
+
+https://stackabuse.com/graphs-in-python-minimum-spanning-trees-prims-algorithm/
