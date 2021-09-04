@@ -44,15 +44,21 @@ When an operation is computed twice or more in a loop, then the number of operat
 
 <h2>The "BIG-OH" Notation</h2>
 
-Let f(n) and g(n) be function mapping positive integers to real numbers, we can say that f(n) is O(g(n)) if there are a constant c > 0 and one integer n0 > 1.
+Let f(n) and g(n) be function mapping positive integers to real numbers, we can say that f(n) is O(g(n)) if there are a constant c > 0 and one integer n0 > 1 such that.
 
-I.e. Big-O is an upper limit for a values greater than n0...
+```python
+f(n) >= c*g(n)  ## for n > n0
+
+```
 
  ![image](Images/big-oh.png)
 
- It\'s considered poor taste to say `f(n) < O(g(n))` since the big-oh already denotes the less.
+I.e. Big-O is an upper limit for a values greater than n0...
 
-The following snippet belongs to an algorithm that searches the greater value in one list. To perform such a task the code must compare each element of the list, which means that the code runs in O(n).
+
+ It\'s considered poor taste to say `f(n) < O(g(n))` since the big-oh already denotes the less.Is the better to say `f(n) is  O(g(n))` since f(n) is a subset of g(n) for some values c > 0 and n0.
+
+The following snippet belongs to an algorithm that searches the greater value in one list. To perform such a task, the code must compare each element of the list, which means that the code runs in O(n).
 
 ```python
  def find_max(data):
