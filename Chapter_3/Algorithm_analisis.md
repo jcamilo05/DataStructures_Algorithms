@@ -171,7 +171,7 @@ There are basically two methods and are **contrapositive** and **contradiction**
 
  __Dm__
 
- So suppose that a = 2\*i+1, and b = 2\*k+1 the a*b is then  4*i*k+2\*i+2\*k + 1 = 2(2*i*k + i + j ) + 1, hence ab is odd.
+ So suppose that a = 2\*i+1, and b = 2\*k+1 the a\*b is then  4\*i\*k+2\*i+2\*k + 1 = 2(2\*i\*k + i + j ) + 1, hence ab is odd.
 
 
 __contradiction__
