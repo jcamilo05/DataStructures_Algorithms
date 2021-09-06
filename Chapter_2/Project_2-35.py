@@ -53,9 +53,17 @@ class GenPackets(Packets):
             self.email = data[k][1]
             self.ipaddr = data[k][2] 
             self.data_frame = pd.DataFrame(data, index=['name','email', 'Ip']).T
-        print(self.data_frame)
+        return self.data_frame
 
-#TODO: Create class for bob to delete or read packets
+class ReadPackets():
+    def __init__(self, df):
+        self.df = df
+        self.username = df['name']
+        self.email = df['email']
+        self.ip_address = df['Ip']
+    def __str__(self):
+        return f"name: {self.username[1]}, email: {self.email[1]}, Ip:{self.ip_address[1]}"
+
 def custom_input():  # TODO: Add logic to only accept ints in the input
     """
     Void function that takes users input  to fill out username, email,
@@ -75,5 +83,9 @@ def custom_input():  # TODO: Add logic to only accept ints in the input
     return all_users
 
 if __name__ == '__main__':
-    Alice = GenPackets()
-    Alice.unpack_data(custom_input())
+    #Alice = GenPackets()
+    #Alice.unpack_data(custom_input())
+    dic = {'name':['Tito', 'jiji'], 'email':['tito@example.com', 'jiji@cat-com'], 'Ip':['123.456','000.2232']}
+    df = pd.DataFrame.from_dict(dic)
+    Bob = ReadPackets(df)
+    print(Bob)
