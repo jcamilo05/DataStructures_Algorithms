@@ -198,7 +198,7 @@ We begin a justification by induction by showing that q(n) is true for n=1 (and 
 
 We are trying to prove that F(n) \< 2^n, Let a Fibonacci sequence with an n > 2 be defined as: F(n) = F(n - 2) + F(n-1)
 
-![](images/Fibonacci.png)
+![](Images/Fibonacci.png)
 __Loop invariants:__
 
 To prove if some statement L about a loop is correct, define L in terms of a series of smaller statement L0, L1, ...Lk
